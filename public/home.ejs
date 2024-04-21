@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- gfonts  ending -->
+    <title>Shareasy Home</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="icon" href="favicon.png">
+    <script src="https://kit.fontawesome.com/88ebba7a68.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <img>
+    <div class="whole">
+        <div class="sec">
+            <h1 class="title">
+                <span class="title-word title-word-1">Real</span>
+                <span class="title-word title-word-2">Time</span>
+                <span class="title-word title-word-3">File</span>
+                <span class="title-word title-word-4">Share</span>
+            </h1>
+        <div class="room-id">
+        <h1 align="center">Choose Your Role: </h1></div>
+        <div class="main2">
+        <div  class="home_main">
+            <form action="/receive" method="get" class="home_main">
+                <button  id="main" type="submit">Receiver</button>
+            </form>
+           
+        </div>
+        <div class="home_main">
+            <form action="/send" method="get" class="home_main">
+                <button  id="main" type="submit">Sender</button>
+            </form>
+        </div>   
+    </div>
+        
+    </div>
+    <div class="home_main">
+        <div id="list">
+            <p class="head_welcome">Welcome to Shareasy Secure File Transfer application!!!</p> <br>
+            <p>An application to share any type of file in real time & collaborate with your team in a room.</p><br>
+            <br><br><br><p class="head_welcome">Step to choose your roles: </p><br>
+            <p>Receiver: Insert RoomID to receive files in that room. </p>
+            <p>Sender: Share the RoomID for reciever to join and receive files.</p>
+        </div>
+    </div>
+    </div>
+    </div>    
+    <p align="center">Made with <i class="fa-solid fa-heart"></i> by Ahan, Anjali, Anjita</p>
+    <script src="./socket.io/socket.io.js"></script>
+</body>
+<script>
+var loader = document.querySelector(".loader");
+window.addEventListener("load", vanish);
+function vanish(){
+loader.classList.add("disappear");
+}
+ </script>
+
+</html>

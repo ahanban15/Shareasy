@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+    <!-- Page Title -->
+    <title>Shareasy Send Files</title>
+    <link rel="icon" href="favicon.png">
+    <link rel="stylesheet" href="design.css">
+</head>
+
+<body>
+    <div class="whole">
+        <div class="container">
+            <h1 class="title">
+                <span class="title-word title-word-1">Sender</span>
+
+            </h1>
+            <div class="room-id">Room ID: <span id="room" style="color: rgb(57, 54, 54);"></span></div>
+            <div class="receiver">
+                <ul id="rec-list">
+                    <li>Reciever list</li>
+                </ul>
+            </div>
+            <input id="file" type="file" name="file">
+            <br>
+            <button id="file-btn">Send</button>
+            <div class="signout-container">
+                <form id="logoutForm" action="/logout" method="POST">
+                    <button type="submit" class="signout-btn">Sign Out</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./socket.io/socket.io.js"></script>
+    <script src="./sender.js"></script>
+</body>
+
+</html>
