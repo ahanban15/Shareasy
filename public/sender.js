@@ -16,11 +16,6 @@ file.addEventListener('change',(e)=>{
 
 fileButton.addEventListener('click',()=>{
     socket.emit('file',{data :file.files[0],type : file.files[0]?.type,name:file.files[0]?.name})
-    // const reader = new FileReader()
-    // reader.onload = ()=>{
-    //     console.log(reader.result);
-    // }
-    // reader.readAsArrayBuffer(file.files[0])
 })
 
 socket.on('init',(data)=>{

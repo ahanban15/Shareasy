@@ -32,7 +32,6 @@ socket.on('file',(file)=>{
     let blob = new Blob([new Uint8Array(file.data)])
     let anc= document.createElement('a');
     anc.href =window.URL.createObjectURL(blob);
-    // window.location = window.URL.createObjectURL(blob);
     anc.download= `${file.name}`
     anc.target = '_blank'
     anc.click()
