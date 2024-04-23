@@ -69,19 +69,49 @@ app.get('/signup', (req, res) => {
   res.render(__dirname + '/public/signup');
 })
 
+// app.post('/signup', (req, res) => {
+//   const newUser = new User({
+//       username: req.body.username,
+//       password: req.body.password
+//   });
+//   newUser.save()
+//       .then(() => {
+//         res.render(__dirname + '/public/login');
+//       })
+//       .catch((err) => {
+//           res.status(400).send('Unable to save to database');
+//       });
+// });
 app.post('/signup', (req, res) => {
-  const newUser = new User({
-      username: req.body.username,
-      password: req.body.password
-  });
-  newUser.save()
-      .then(() => {
-        res.render(__dirname + '/public/login');
-      })
-      .catch((err) => {
-          res.status(400).send('Unable to save to database');
-      });
+  // Check if the username already exists in the database
+  User.findOne({ username: req.body.username })
+    .then(existingUser => {
+      if (existingUser) {
+        // If user already exists, send a response indicating that
+        res.status(400).send('Username already exists. Please use different credentials.');
+      } else {
+        // If user doesn't exist, create a new user and save to the database
+        const newUser = new User({
+          username: req.body.username,
+          password: req.body.password
+        });
+        newUser.save()
+          .then(() => {
+            // Redirect to login page after successful signup
+            res.render(__dirname + '/public/login');
+          })
+          .catch((err) => {
+            // If there's an error saving to the database, send an error response
+            res.status(400).send('Unable to save to database');
+          });
+      }
+    })
+    .catch(err => {
+      // If there's an error querying the database, send an error response
+      res.status(500).send('Internal Server Error');
+    });
 });
+
 
 app.get('/login', (req, res) => {
   res.render(__dirname + '/public/login');
